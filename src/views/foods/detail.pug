@@ -1,0 +1,26 @@
+extends ../layouts/layout
+block content
+  .container-detail.mg-top__90
+    .detail
+        .detail_img
+          a(href="")
+            img(src = food.ImageUrl, class="img-item")
+        .detail_information
+          p.name_detail  Food ID&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;: 
+          p.name_information=food.foodCode 
+          br
+          p.name_detail Food Name:
+          p.name_information=food.title     
+          br         
+          p.name_detail Description&nbsp;: 
+          p.name_information=food.description 
+          br
+          p.name_detail Price&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;:
+          p.name_information=food.price 
+          br
+          
+          .btn-detail
+            a(href='/foods/' + food.id +'/edit' class="btn-edit")
+              i.las.la-edit
+            form(method="POST" action="/foods/" + food.id + "?_method=DELETE")
+              button(type='submit' class="btn-delete") DELETE

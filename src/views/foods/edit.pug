@@ -1,0 +1,37 @@
+extends ../layouts/layout
+block content
+  .title.mg-top__90  
+    p CLARIS UPDATE FOOD
+  div(class = "add_content")
+    if locals.errorMessage
+        .alert.alert-danger(style="color:red;")= errorMessage
+
+    form( action="/foods/" + food.id + "?_method=PUT" method="POST"  enctype="multipart/form-data")
+        .form-row
+          .form-group.col-md-6
+            label(for="foodId" ) Food ID
+            input(class="form-control" placeholder="Food ID", type="text" name="foodCode" value=food.foodCode )
+        .form-row
+          .form-group.col-md-6
+            label(for="foodname" ) Food Name
+            input(class="form-control" placeholder="Food Name", type="text" name="title" value=food.title )
+
+        .form-row
+          .form-group.col-md-6
+            label(for="price" ) Price
+            input(class="form-control" placeholder="Food Price",type="number" name="price" min="1" value = food.price )
+
+        .form-row
+          .form-group.col-md-6
+              label(for="description") Description
+              textarea( class="form-control" name="description" rows="3", food.description )
+    
+        .form-row
+          .form-group.col-md-6
+              label(for="coverImg") Upload Image
+              input( type="file" name="ImageUrl" class="form-control p-0 h-30" required)
+
+        .btn-edit
+                a(href="/foods")
+                  i.las.la-window-close
+                button(type="submit" class="btn_update") UPDATE

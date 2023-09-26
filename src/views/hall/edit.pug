@@ -1,0 +1,42 @@
+extends ../layouts/layout
+block content
+  .title.mg-top__90  
+      p CLARIS UPDATE HALL
+  div(class = "add_content")
+    if locals.errorMessage
+        .alert.alert-danger(style="color:red;")= errorMessage
+
+    form( action="/hall/" + hall.id + "?_method=PUT" method="POST"  enctype="multipart/form-data")
+        .form-row
+          .form-group.col-md-6
+            label(for="hallid" ) Hall ID
+            input(class="form-control" placeholder="Hall ID", type="text" name="hallid" value=hall.hallid )
+
+        .form-row
+          .form-group.col-md-6
+            label(for="hallname" ) Hall Name
+            input(class="form-control" placeholder="Hall Name", type="text" name="hallname" value=hall.hallname )
+            
+          .form-group.col-md-6
+            label(for="halltype" ) Hall Type
+            input(class="form-control" placeholder="Hall Type", type="text" name="halltype" value=hall.halltype )
+
+        .form-row
+          .form-group.col-md-6
+            label(for="price" ) Price
+            input(class="form-control" placeholder="Hall Price",type="number" name="price" min="1" value = hall.price )
+
+        .form-row
+          .form-group.col-md-6
+              label(for="description") Description
+              textarea( class="form-control" name="description" rows="3", hall.description )
+    
+        .form-row
+          .form-group.col-md-6
+              label(for="coverImg") Upload Image
+              input( type="file" name="ImageUrl" class="form-control p-0 h-30" required)
+
+        .btn-edit
+                a(href="/hall")
+                  i.las.la-window-close
+                button(type="submit" class="btn_update") UPDATE

@@ -1,0 +1,47 @@
+extends ../layouts/layout
+block content
+  .title.mg-top__90  
+      p CLARIS ADD HALL
+  div(class = "add_content")
+    if locals.errorMessage
+        .alert.alert-danger(style="color:red;")= errorMessage
+
+    form(action="/hall" method="POST" enctype="multipart/form-data")
+        .form-row
+          .form-group
+            label(for="hallid" ) Hall ID
+            input(class="form-control" placeholder="Hall ID", type="text" name="hallid" value= hall.hallid )
+
+        .form-row
+          .form-group
+            label(for="hallname" ) Hall Name
+            input(class="form-control" placeholder="Hall Name", type="text" name="hallname" value= hall.hallname )
+
+        .form-row
+          .form-group
+            //- label(for="halltype" ) Hall type
+            //- input(class="form-control" placeholder="Hall Type", type="text" name="halltype" value= hall.halltype )
+            label(for='halltype') Hall Type :
+            select#type(name='halltype')
+              option(value='Beach Palace' hall.halltype) Beach Palace
+              option(value='Luxury Palace' hall.halltype) Luxury Place
+              option(value='Outside Palace' hall.halltype) Outside Place
+
+          .form-group
+            label(for="price" ) Price
+            input(class="form-control" placeholder="Hall Price",type="number" name="price" min="1" value = hall.price )
+
+        .form-row
+          .form-group
+              label(for="description") Description
+              textarea( class="form-control" name="description" rows="3", hall.description )
+
+        .form-row
+          .form-group
+              label(for="coverImg") Upload Image
+              input( type="file" name="ImageUrl" class="form-control p-0 h-30" required)
+
+        .btn
+          button.btn-reset RESET
+             a(href='/hall') 
+          button(type="submit" class="btn-add" style="margin-left: 15px") ADD

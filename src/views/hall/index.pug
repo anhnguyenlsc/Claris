@@ -1,0 +1,19 @@
+extends ../layouts/layout
+
+block content
+  .container-list.mg-top__90
+      .input-group
+        form(action="/hall" method="GET" class="search-name")
+          input( type="text" class="input-search" name="hallname" class="form-control" placeholder="Enter Hall Name" value=searchOptions.hallname)
+          button(type="submit" class="btn-search")
+            i.las.la-search
+          
+ 
+      .list.grid.wide
+        ul.row
+          each hall in halls
+            li.col.l-2-4
+              .item-wrapper
+                  a(href='/hall/'+hall.id)
+                    img(src=hall.ImageUrl, class="img-item")
+                    h3.item-text= hall.hallname

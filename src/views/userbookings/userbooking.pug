@@ -1,0 +1,53 @@
+doctype html
+head
+  meta(charset='UTF-8')
+  meta(http-equiv='X-UA-Compatible' content='IE=edge')
+  meta(name='viewport' content='width=device-width, initial-scale=1.0')
+  title Claris Place
+  link(rel='stylesheet' href='/stylesheets/style.css')
+  link(rel='stylesheet' href='https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css')
+
+body
+
+  .title.mg-top__20  
+      p CLARIS BOOKING
+  div(class = "add_content")
+    if locals.errorMessage
+        .alert.alert-danger(style="color:red;")= errorMessage
+
+    form(action="/userbookings" method="POST" enctype="multipart/form-data")
+        .form-row
+          .form-group
+            label(for="fullname" ) Full Name
+            input(class="form-control" placeholder="Full Name", type="text" name="fullname" value= booking.fullname )
+        .form-row
+          .form-group
+            label(for="email" ) Email
+            input(id="fullname_user" class="form-control" placeholder="Email", type="text" name="email" value= booking.email )
+
+        .form-row
+          .form-group
+            label(for="phone" ) Phone
+            input(class="form-control" placeholder="Phone",type="number" name="phone" value = booking.phone )
+
+        .form-row
+          .form-group
+            label(for='halltype') Hall Type
+            select(name='halltype')
+              option(value='Beach Palace' booking.halltype) Beach Palace
+              option(value='Luxury Palace' booking.halltype) Luxury Place
+
+          .form-group
+            label(for='foodtype') Food Type
+            select(name='foodtype')
+              option(value='Western Cuisine' booking.foodtype) Western
+              option(value='Asian Cuisine' booking.foodtype) Asian
+
+        .form-row
+          .form-group
+            label(for="bookingDate" ) Booking Date
+            input(class="form-control" ,type="date" name="bookingDate" value = booking.bookingDate )
+
+        .btn
+          a(href='/') Back To Home Page
+          button(type="submit" class="btn-add" style="margin-left: 15px") ADD

@@ -1,0 +1,28 @@
+doctype html
+head
+    title Claris Palace
+    meta(charset='utf-8')
+    meta(name='viewport', content='width=device-width, initial-scale=1')
+    link(rel='stylesheet', href='/stylesheets/style.css')
+    link(rel='stylesheet', href='/stylesheets/base.css')
+    link(rel="stylesheet", href='https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css')
+
+body 
+    .container-detail-user.mg-top__90
+    a(href='/hall_user/hall_list_user' class='back_detail' ) To choose another hall, please click here
+    .detail
+        .detail_img_user
+          a(href="")
+            img(src = hall.ImageUrl, class="img-item")
+        .detail_information
+          p.name_detail Hall Name&nbsp;&nbsp;:
+          p.name_information=hall.hallname     
+          br         
+          p.name_detail Hall Type&nbsp;&nbsp;&nbsp;&nbsp;: 
+          p.name_information=hall.halltype    
+          br
+          p.name_detail Price&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;:  
+          p.name_information=hall.price
+          br
+          p.name_detail Description&nbsp;: 
+          p.name_information=hall.description 

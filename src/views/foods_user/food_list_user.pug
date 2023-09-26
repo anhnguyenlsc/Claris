@@ -1,0 +1,26 @@
+doctype html
+head
+    title Claris Palace
+    meta(charset='utf-8')
+    meta(name='viewport', content='width=device-width, initial-scale=1')
+    link(rel='stylesheet', href='/stylesheets/style.css')
+    link(rel='stylesheet', href='/stylesheets/base.css')
+    link(rel="stylesheet", href='https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css')
+
+body 
+    .container-list.mg-top__90
+      .input-group-food-user
+        form(action="/foods_user/food_list_user" method="GET" class="search-name-user")
+          input(id='input-search-user' type="text" class="input-search" name="title" class="form-control" placeholder="Enter Food Name" value=searchOptions.title)
+          button(type="submit" class="btn-search")
+            i.las.la-search
+        a(href='/' class='back_homepage' ) Want to explore more? Please click here
+  
+      .list.grid.wide
+        ul.row
+          each food in foods
+            li.col.l-2-4
+              .item-wrapper
+                  a(href='/foods_user/'+food.id)
+                    img(src=food.ImageUrl, class="img-item")
+                    h3.item-text= food.title

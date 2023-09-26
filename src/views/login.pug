@@ -1,0 +1,31 @@
+doctype html
+head
+  meta(charset='UTF-8')
+  meta(http-equiv='X-UA-Compatible' content='IE=edge')
+  meta(name='viewport' content='width=device-width, initial-scale=1.0')
+  title Claris Place
+  link(rel='stylesheet' href='/stylesheets/style.css')
+  link(rel='stylesheet' href='https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css')
+.wrapper-login
+  .login_form
+    .return_home
+      a(href='/')
+        i.las.la-angle-left
+      p Return Home
+    .form
+      .container-form
+        form(action='/index' method='POST')
+          label(for='username') User Name
+          input(type='text' placeholder='Enter User Name' name='username')
+          label(for='password') Password
+          input(type='password' placeholder='Enter Password' name='password')
+          button(type='submit')
+            a(href='/index') L O G I N
+          label
+            input(type='checkbox' checked='checked' name='remember')
+            | Remember me
+          span.psw
+            | Forgot 
+            a(href='#') password?
+  .login_image
+    img(src='https://res.cloudinary.com/dzgdczkjk/image/upload/v1668885082/ClarisResources/img_login_jmp6uh.png' alt='')

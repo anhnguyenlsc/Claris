@@ -1,0 +1,27 @@
+extends ../layouts/layout
+
+block content
+  .title-booking.mg-top__90
+    p CLARIS BOOKING
+  div(class = "content-booking_client")
+    table
+      thead
+        tr
+          th(scope='col-fullname') Full Name
+          th(scope='col-email') Email
+          th(scope='col-phone') Phone
+          th(scope='col-halltype') Hall Type 
+          th(scope='col-foodtype') Food Type 
+          th(scope='col-bookingdate') Booking Date
+      tbody
+        each booking in bookings
+          tr
+            td.item-text-fullname= booking.fullname 
+            td.item-text-email= booking.email
+            td.item-text-phone= booking.phone
+            td.item-text-halltype= booking.halltype
+            td.item-text-foodtype= booking.foodtype
+            td.item-text-bookingDate= booking.bookingDate
+              
+          
+        

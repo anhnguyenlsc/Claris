@@ -1,0 +1,29 @@
+extends ../layouts/layout
+block content
+   .container-detail.mg-top__90
+    .detail
+        .detail_img
+          a(href="")
+            img(src = hall.ImageUrl, class="img-item")
+        .detail_information
+          p.name_detail  Hall ID&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: 
+          p.name_information=hall.hallid 
+          br
+          p.name_detail Hall Name&nbsp;&nbsp;:
+          p.name_information=hall.hallname     
+          br         
+          p.name_detail Hall Type&nbsp;&nbsp;&nbsp;&nbsp;: 
+          p.name_information=hall.halltype    
+          br
+          p.name_detail Price&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;: 
+          p.name_information=hall.price
+          br
+          p.name_detail Description&nbsp;: 
+          p.name_information=hall.description
+          br
+          
+          .btn-detail
+            a(href='/hall/' + hall.id +'/edit' class="btn-edit")
+              i.las.la-edit
+            form(method="POST" action="/hall/" + hall.id + "?_method=DELETE")
+              button(type='submit' class="btn-delete") DELETE

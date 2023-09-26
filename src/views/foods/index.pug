@@ -1,0 +1,19 @@
+extends ../layouts/layout
+
+block content
+  .container-list.mg-top__90
+      .input-group
+        form(action="/foods" method="GET" class="search-name")
+          input( type="text" class="input-search" name="title" class="form-control" placeholder="Enter Food Name" value=searchOptions.title)
+          button(type="submit" class="btn-search")
+            i.las.la-search
+          
+ 
+      .list.grid.wide
+        ul.row
+          each food in foods
+            li.col.l-2-4
+              .item-wrapper
+                  a(href='/foods/'+food.id)
+                    img(src=food.ImageUrl, class="img-item")
+                    h3.item-text= food.title
